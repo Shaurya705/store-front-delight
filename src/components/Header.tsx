@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
-import { ShoppingCart, LogOut, Menu, X } from 'lucide-react';
+import {ShoppingCart, LogOut, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 
 const Header = () => {

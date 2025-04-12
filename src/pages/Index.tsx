@@ -1,11 +1,20 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Index = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Redirect to the product listing page
+    navigate("/");
+  }, [navigate]);
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+        <div className="w-12 h-12 border-4 border-t-shop-blue border-gray-200 rounded-full animate-spin mx-auto"></div>
+        <p className="mt-4 text-shop-text">Loading...</p>
       </div>
     </div>
   );

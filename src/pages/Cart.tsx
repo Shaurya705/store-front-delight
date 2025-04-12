@@ -5,10 +5,14 @@ import CartItem from '../components/CartItem';
 import { ArrowLeft, ShoppingCart } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from 'sonner';
+import { convertUSDtoINR, formatINR } from '../lib/currency';
 
 const Cart = () => {
   const { items, total, clearCart } = useCart();
   const [isProcessingOrder, setIsProcessingOrder] = useState(false);
+  
+  // Convert total to INR
+  const totalInINR = convertUSDtoINR(total);
   
   const handleCheckout = () => {
     if (items.length === 0) {
@@ -58,7 +62,7 @@ const Cart = () => {
               <div className="space-y-3 mb-6">
                 <div className="flex justify-between text-shop-text">
                   <span>Items ({items.length})</span>
-                  <span>${total.toFixed(2)}</span>
+                  <span>{formatINR(totalInINR)}</span>
                 </div>
                 <div className="flex justify-between text-shop-text">
                   <span>Shipping</span>
@@ -66,7 +70,10 @@ const Cart = () => {
                 </div>
                 <div className="border-t border-gray-200 pt-3 flex justify-between text-lg font-medium">
                   <span>Total</span>
-                  <span>${total.toFixed(2)}</span>
+                  <div className="text-right">
+                    <div>{formatINR(totalInINR)}</div>
+                    <div className="text-xs text-shop-text-light">(${total.toFixed(2)} USD)</div>
+                  </div>
                 </div>
               </div>
               

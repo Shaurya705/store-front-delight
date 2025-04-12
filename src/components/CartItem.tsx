@@ -2,6 +2,7 @@
 import { Minus, Plus, Trash2 } from 'lucide-react';
 import { CartItem as CartItemType } from '../context/CartContext';
 import { useCart } from '../context/CartContext';
+import { convertUSDtoINR, formatINR } from '../lib/currency';
 
 interface CartItemProps {
   item: CartItemType;
@@ -24,6 +25,9 @@ const CartItem = ({ item }: CartItemProps) => {
     removeItem(item.id);
   };
 
+  // Convert price to INR
+  const priceInINR = convertUSDtoINR(item.price * item.quantity);
+
   return (
     <div className="flex py-5 border-b border-gray-200">
       <div className="w-24 h-24 flex-shrink-0 bg-gray-50 rounded-md overflow-hidden">
@@ -39,8 +43,8 @@ const CartItem = ({ item }: CartItemProps) => {
             <h3 className="text-base font-medium text-shop-text">
               {item.title}
             </h3>
-            <p className="ml-4 text-base font-medium text-shop-text">
-              ${(item.price * item.quantity).toFixed(2)}
+            <p className="ml-4 text-base font-medium text-shop-text flex items-center">
+              {formatINR(priceInINR)}
             </p>
           </div>
           <p className="mt-1 text-sm text-shop-text-light line-clamp-2">

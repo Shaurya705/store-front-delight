@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Product } from '../services/api';
 import { useCart } from '../context/CartContext';
 import { ShoppingCart } from 'lucide-react';
+import { convertUSDtoINR, formatINR } from '../lib/currency';
 
 interface ProductCardProps {
   product: Product;
@@ -16,6 +17,9 @@ const ProductCard = ({ product }: ProductCardProps) => {
     e.stopPropagation();
     addItem(product, 1);
   };
+
+  // Convert price to INR
+  const priceInINR = convertUSDtoINR(product.price);
 
   return (
     <Link to={`/product/${product.id}`} className="group">
@@ -34,8 +38,8 @@ const ProductCard = ({ product }: ProductCardProps) => {
             </h3>
           </div>
           <div className="flex justify-between items-center">
-            <span className="text-lg font-semibold text-shop-text">
-              ${product.price.toFixed(2)}
+            <span className="text-lg font-semibold text-shop-text flex items-center">
+              {formatINR(priceInINR)}
             </span>
             <button
               onClick={handleAddToCart}

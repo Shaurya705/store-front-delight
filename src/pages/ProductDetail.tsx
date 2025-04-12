@@ -6,6 +6,7 @@ import { useCart } from '../context/CartContext';
 import { ArrowLeft, Star, ShoppingCart, Check } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from 'sonner';
+import { convertUSDtoINR, formatINR } from '../lib/currency';
 
 const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -41,6 +42,9 @@ const ProductDetail = () => {
       </div>
     );
   }
+
+  // Convert price to INR
+  const priceInINR = convertUSDtoINR(product.price);
 
   const handleAddToCart = () => {
     addItem(product, quantity);
@@ -98,8 +102,13 @@ const ProductDetail = () => {
             
             <p className="text-shop-text-light mb-6">{product.description}</p>
             
-            <div className="text-2xl font-bold text-shop-text mb-6">
-              ${product.price.toFixed(2)}
+            <div className="flex items-center mb-6">
+              <span className="text-2xl font-bold text-shop-text">
+                {formatINR(priceInINR)}
+              </span>
+              <span className="ml-2 text-sm text-shop-text-light">
+                (${product.price.toFixed(2)})
+              </span>
             </div>
             
             <div className="flex items-center mb-6">

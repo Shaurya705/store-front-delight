@@ -5,7 +5,7 @@ import { useCart } from '../context/CartContext';
 import { convertUSDtoINR, formatINR } from '../lib/currency';
 
 interface CartItemProps {
-  item: CartItemType;
+  item:CartItemType;
 }
 
 const CartItem = ({ item }: CartItemProps) => {

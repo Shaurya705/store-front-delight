@@ -1,6 +1,6 @@
 
 import { Link } from 'react-router-dom';
-import { Product } from '../services/api';
+import {Product } from '../services/api';
 import { useCart } from '../context/CartContext';
 import { ShoppingCart } from 'lucide-react';
 import { convertUSDtoINR, formatINR } from '../lib/currency';

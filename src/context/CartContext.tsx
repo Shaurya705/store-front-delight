@@ -1,6 +1,6 @@
 
 import { createContext, ReactNode, useContext, useState, useEffect } from 'react';
-import { Product } from '../services/api';
+import {Product } from '../services/api';
 import { toast } from 'sonner';
 
 export interface CartItem extends Product {

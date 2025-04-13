@@ -1,6 +1,6 @@
 
 // Currency conversion utility functions
-// Exchange rate as of April 12, 2025 (approximate)
+// Exchange rate as of April 12, 2025 (approximate
 const USD_TO_INR_RATE = 83.5;
 
 export const convertUSDtoINR = (usdAmount: number): number => {

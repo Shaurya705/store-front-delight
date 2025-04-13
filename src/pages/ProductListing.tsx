@@ -52,7 +52,7 @@ const ProductListing = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-2xl font-bold text-shop-text mb-6">All Products</h1>
+      <h1 className="text-2xl font-bold text-shop-text mb-6">All Product</h1>
       
       <div className="flex flex-col md:flex-row gap-4 mb-6">
         {/* Search Bar */}

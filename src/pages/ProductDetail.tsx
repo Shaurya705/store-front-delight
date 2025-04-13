@@ -24,7 +24,7 @@ const ProductDetail = () => {
       <div className="container mx-auto px-4 py-8 flex justify-center items-center min-h-[60vh]">
         <div className="text-center">
           <div className="w-12 h-12 border-4 border-t-shop-blue border-gray-200 rounded-full animate-spin mx-auto"></div>
-          <p className="mt-4 text-shop-text">Loading product details...</p>
+          <p className="mt-4 text-shop-text">Loading product details..</p>
         </div>
       </div>
     );
